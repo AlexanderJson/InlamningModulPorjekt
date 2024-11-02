@@ -1,3 +1,6 @@
+import { buildSingleProduct } from "../View/singleProduct.js";
+
+
 function connection(){
 
   console.log("works")
@@ -5,6 +8,12 @@ function connection(){
 
 }
 function buildApp(){
- connection();
+
+  connection();
+  const appDiv = document.querySelector('main');
+
+  const singleProduct = buildSingleProduct();
+
+  appDiv.appendChild(singleProduct);
 }
 window.onload = buildApp;
