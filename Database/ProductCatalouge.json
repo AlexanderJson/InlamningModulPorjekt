@@ -1,0 +1,24 @@
+[
+  {
+    "articleNumber": 100,
+    "id": 50,
+    "name": "Retro Vacuum 2000",
+    "price": 2357,
+    "type": "Cleaning",
+    "description": "Newest retro vacuum",
+    "stock": 500,
+    "color": "red"
+  },
+
+  {
+    "articleNumber": 100,
+    "id": 51,
+    "name": "Retro Vacuum 2000",
+    "price": 1229,
+    "type": "Cleaning",
+    "description": "Newest retro vacuum",
+    "stock": 25,
+    "color": "mint green"
+  }
+
+]
