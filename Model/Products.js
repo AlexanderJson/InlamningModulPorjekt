@@ -4,7 +4,7 @@ constructor(id, name, price, type, description, stock, relations = []) {
 
   this.id = id;
   this.name = name;
-  this.price = price;
+  this._price = price;
   this.type = type;
   this.description = description;
   this.stock = stock;
@@ -13,5 +13,23 @@ constructor(id, name, price, type, description, stock, relations = []) {
 }
 
 
+  get price(){
+  return this._price;
+  }
+  set price(newPrice){
+  if (newPrice < 0) throw new Error("Price needs to be more than 0"); //error hsntering globalt
+    this._price = newPrice;
+  }
+
+  getCurrentPrice(){
+
+  }
+
+
+  addAddon(addon){
+    // logik för att lägga på vara + vara
+  }
+
+  removeAddon(addon){}
 
 }
