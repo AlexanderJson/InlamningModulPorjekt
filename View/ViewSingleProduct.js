@@ -4,7 +4,7 @@ import { Products } from "../Model/Products";
 export const singleProductSkeleton = [
 
   {
-    id: 'priceHeader', //visa pris på produkt
+    id: 'price-header', //visa pris på produkt
     type: 'h2',
     className: 'headers',
     content: `${product.price}`,
@@ -12,7 +12,13 @@ export const singleProductSkeleton = [
 
   {
 
-    id: 'productMenu'
+    id: 'product-choices',
+    type: 'dropdown-menu',
+    className: 'dropdown-menu',
+    menuTitle: 'Choose color',
+    items: [
+      
+    ]
 
   }
 

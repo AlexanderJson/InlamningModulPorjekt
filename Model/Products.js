@@ -1,16 +1,18 @@
 export class Products {
 
-constructor(id, name, price, type, description, stock, relations = []) {
+constructor(id, name, price, type, colors, description, stock, relations = []) {
 
   this.id = id;
   this.name = name;
   this._price = price;
   this.type = type;
+  this.color = color;
   this.description = description;
   this.stock = stock;
   this.relations = relations; // relaterade varor (för rekommendationer, tips, accessoarer osv)
 
 }
+
 
 
   get price(){
