@@ -1,19 +1,17 @@
-import { buildSingleProduct } from "../View/singleProduct.js";
+import { Products } from "./Products.js";
+import { buildFromSkeleton  } from "../View/ViewAllProducts.js";
 
 
 function connection(){
-
   console.log("works")
   alert("works")
-
 }
+
 function buildApp(){
-
-  connection();
   const appDiv = document.querySelector('main');
+  const productPage = buildFromSkeleton();
 
-  const singleProduct = buildSingleProduct();
-
-  appDiv.appendChild(singleProduct);
+  appDiv.appendChild(productPage);
+  return appDiv;
 }
 window.onload = buildApp;

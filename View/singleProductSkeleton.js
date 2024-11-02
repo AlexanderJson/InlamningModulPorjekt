@@ -1,19 +1,48 @@
-import { Products } from "../Model/Products";
-
+import { Products } from "../js/Products.js";
 
 export const singleProductSkeleton = [
-
-  // lista ut ett sätt att få denna sida att vara utbytbar 100% genom att ta in
-  // produkt id som leder till färg,pris,stock osv.
+  {
+    id: 'test',
+    type: 'h2',
+    content: 'Hello!',
+    columnStart: 5,
+    ColumnEnd: 5,
+    rowStart: 1,
+    rowEnd: 5,
+  },
 
   {
+    id: 'div1',
+    type: 'div',
+    content: null,
+    columnStart: 1,
+    ColumnEnd: 7,
+    rowStart: 1,
+    rowEnd: 6,
+  },
+  {
+    id: 'div2',
+    type: 'div',
+    content: null,
+    columnStart: 7,
+    ColumnEnd: 13,
+    rowStart: 1,
+    rowEnd: 6,
+  },
+
+
+
+
+  /*
+
+
+    {
     id: 'price-header', //visa pris på produkt
     type: 'h2',
     className: 'headers',
     content: null,
   },
 
-  /*
 {
  id: 'product-choices',
  type: 'dropdown-menu',

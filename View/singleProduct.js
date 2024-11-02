@@ -1,4 +1,4 @@
-import { singleProductSkeleton } from "./singleProductSkeleton";
+import { singleProductSkeleton } from "./singleProductSkeleton.js";
 
 function renderProductPage(productId){
 
