@@ -1,17 +1,20 @@
-import { Products } from "./Products.js";
-import { buildFromSkeleton  } from "../View/ViewAllProducts.js";
-
+import {buildFromSkeleton} from "./ViewAllProducts.js";
 
 function connection(){
   console.log("works")
   alert("works")
 }
 
-function buildApp(){
-  const appDiv = document.querySelector('main');
-  const productPage = buildFromSkeleton();
 
-  appDiv.appendChild(productPage);
+
+async function buildApp() {
+  const appDiv = document.querySelector('main');
+
+  const productPageMain  =  await buildFromSkeleton();
+
+  appDiv.appendChild(productPageMain)
+
+
   return appDiv;
 }
 window.onload = buildApp;

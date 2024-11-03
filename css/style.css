@@ -52,8 +52,21 @@ header li {
   gap: 10px;
   overflow-y: auto;
   grid-auto-rows: minmax(100px, auto);
-  background-color: black;
+
 }
+
+#price-header{
+  color: lightseagreen;
+  font-style: italic;
+  font-size: 100px;
+}
+
+#price-text{
+  color: lightseagreen;
+  font-style: italic;
+  font-size: 100px;
+}
+
 
 .component {
 }

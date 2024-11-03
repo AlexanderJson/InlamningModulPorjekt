@@ -1,18 +1,21 @@
-import { Products } from "./Products.js";
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+
+import {Products} from "./Products.js";
 
 
+// universiellt json sök, återanvänds i andra metoder som filtrerar data.
+
+
+
+export function testing() {
+  console.log("buildFromSkeleton works");
+}
 // bakgrundfärg: r g b - 15% , 4% , 9%
 
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
 
 
-const filePath = path.resolve(dirname, 'products.json');
 // lägg på "id" funktion med, så vi inte behöver hämta ALL data varje gång
+
 
 
 // för sök parametrar senare:
@@ -28,39 +31,43 @@ export async function getProductByArticleNmb(articleNumber){
   return allProductsByFilter.filter(product => articleNumber === product.articleNumber);
 }
 
-
-// universiellt json sök, återanvänds i andra metoder som filtrerar data.
-
 // asynkron funktion m. async/await. Allt körs sekventiellt på main tråden i javascript,
 // koden "pausas/hoppar av tråden" tillfälligt tills den hämtat response. Suspension triggas när "await" kallas.
 export async function getProducts() {
 
   try {
 
-    const data = await fs.readFile(filePath, 'utf8');
-    const productData = JSON.parse(data);
+    const baseUrl = window.location.origin;
+    const response = await fetch(`${baseUrl}/products.json`);
+
+    if (!response.ok){
+      throw new Error('Could not  load data! Response: ' + response)
+    }
+    const productData = await response.json();
 
     if (!Array.isArray(productData)) {
-      throw new Error("Product is not array!!!!!!!!!!")
+      throw new Error("Product is not array!!!!!!!!!!");
     }
-
-    return productData.map(data => new Products(
-      data.articleNumber,
-      data.id,
-      data.name,
-      data.price,
-      data.type,
-      data.description,
-      data.stock,
-      data.color
+    return productData.map(product => new Products(
+      product.articleNumber,
+      product.id,
+      product.name,
+      product.price,
+      product.type,
+      product.description,
+      product.stock,
+      product.color,
     ));
-
-
-
   }
+
     catch (error){
       console.log(error);
       return [];
     }
   }
+
+(async function test(){
+  const products = await getProducts();
+  console.log("Prod: ", products);
+})();
 
