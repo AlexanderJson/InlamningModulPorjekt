@@ -1,30 +1,148 @@
 
-
+// lägg till auto constraints  -> hittar närmsta element under vissa variabler och sätter som parent/child?
 // ide: grid layout + json dokument med comp = inflöde av konstant data i dynamisk kombination med UI komponenter.
+let header;
+let product;
+
 export const singleProductSkeleton = [
+
+// placering här sker i ordning då det sedan itereras, ska ett över ett annat måste det vara efter
   {
-    id: 'price-header', //visa pris på produkt
-    type: 'h2',
-    className: 'headers',
-    content: "+/price" ?? '0', // om data inte hämtas visar den meddelande
-    columnStart: 8,
-    ColumnEnd: null,
-    rowStart: 2,
+    id: 'div1',
+    type: 'div',
+    content: null,
+    columnStart: 1,
+    columnEnd: 7,
+    rowStart: 1,
     rowEnd: null,
+
+  },
+  {
+    id: 'div2',
+    type: 'div',
+    content: null,
+    columnStart: 7,
+    columnEnd: 13,
+    rowStart: 1,
+    rowEnd: null,
+    url:null,
   },
 
   {
-    id: 'price-text', //visa pris på produkt
-    type: 'h3',
-    className: 'headers',
-    content: `+/color` ?? 'No color' ,
-    columnStart: 1,
-    ColumnEnd: 12,
-    rowStart: 1,
+    id: 'product-image', //visa pris på produkt
+    type: 'img',
+    className: null,
+    content: "+/articleNumber",
+    columnStart: 2,
+    ColumnEnd: 2,
+    rowStart: 2,
     rowEnd: 2,
   },
 
 
+
+
+  //div 1
+
+  {
+    id: 'product-header', //visa pris på produkt
+    type: 'h2',
+    className: 'headers',
+    content: "+/name" ?? '0', // om data inte hämtas visar den meddelande
+    columnStart: 9,
+    columnEnd: null,
+    rowStart: 2,
+    rowEnd: 2,
+  },
+  {
+    id: 'price-header', //visa pris på produkt
+    type: 'h3',
+    className: 'headers',
+    content: `+/price SEK` ?? 'No color' ,
+    columnStart: 9,
+    columnEnd: null,
+    rowStart: 3,
+    rowEnd: 3,
+    url:null
+  },
+  {
+    id: 'stock-header', //visa pris på produkt
+    type: 'p',
+    className: 'headers',
+    content: `+/stock in stock` ?? 'Out of stock', // om data inte hämtas visar den meddelande
+    columnStart: 11,
+    columnEnd: null,
+    rowStart: 4,
+    rowEnd: 4,
+  },
+
+
+  {
+    id: 'color-header', //visa pris på produkt
+    type: 'h3',
+    className: 'headers',
+    content: `+/color` ?? 'No color' ,
+    columnStart: 9,
+    columnEnd: null,
+    rowStart: 4,
+    rowEnd: 4,
+  },
+
+  {
+    id: 'product-description', //visa pris på produkt
+    type: 'span',
+    className: 'descriptions',
+    content: `+/description` ?? 'No description' ,
+    columnStart: 9,
+    columnEnd: null,
+    rowStart: 5,
+    rowEnd: 5, //om denna är true så måste tre ovan vara avstängda
+  },
+
+  {
+    id: 'color-select', //visa pris på produkt
+    type: 'select',
+    className: 'product-select',
+    content: `Colors` ?? 'No description' ,
+    columnStart: 9,
+    columnEnd: 10,
+    rowStart: 6,
+    rowEnd: 6, //om denna är true så måste tre ovan vara avstängda
+  },
+
+  {
+    id: 'color-options', //visa pris på produkt
+    type: 'option',
+    className: 'product-select',
+    content: `+/color` ?? 'No description' ,
+    columnStart: 11,
+    columnEnd: 10,
+    rowStart: 6,
+    rowEnd: 6, //om denna är true så måste tre ovan vara avstängda
+  },
+
+
+  {
+    id: 'addon-options', //visa pris på produkt
+    type: 'select',
+    className: 'product-select',
+    content: `Addons` ?? 'No description' ,
+    columnStart: 10,
+    columnEnd: 11,
+    rowStart: 6,
+    rowEnd: 6, //om denna är true så måste tre ovan vara avstängda
+  },
+
+  {
+    id: 'buy-btn', //visa pris på produkt
+    type: 'button',
+    className: null,
+    content: `BUY NOW` ?? 'No description' ,
+    columnStart: 9,
+    columnEnd: 9,
+    rowStart: 7,
+    rowEnd: 7, //om denna är true så måste tre ovan vara avstängda
+  },
   /*
 
 

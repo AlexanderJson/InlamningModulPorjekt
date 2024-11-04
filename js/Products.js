@@ -1,6 +1,6 @@
 export class Products {
 
-  constructor(articleNumber, id, name, price, type, description, stock, color, relations = []) {
+  constructor(articleNumber, id, name, price, type, description, stock, color, relations = [], outlet) {
 
   this.articleNumber = articleNumber;
   this.id = id;
@@ -11,6 +11,7 @@ export class Products {
   this.description = description;
   this.stock = stock;
   this.relations = relations;
+  this.outlet = outlet;
   // relaterade varor (för rekommendationer, tips, accessoarer osv), ska ej finnas i json då
   // detta ska hanteras programatiskt. Skapa algoritm för rekommendationer? Neiuralt nätvekr?
 

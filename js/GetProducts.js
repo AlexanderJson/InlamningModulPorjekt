@@ -17,15 +17,22 @@ export function testing() {
 // lägg på "id" funktion med, så vi inte behöver hämta ALL data varje gång
 
 
-
 // för sök parametrar senare:
 
 // söker efter json data baserat på filter. todo: gör dynamiskt sen med argument.
 
 export async function getProductById(id){
   const allProductsByFilter = await getProducts();
-  return allProductsByFilter.find(product => id === product.id);
+  return allProductsByFilter.find(product => Number(id) === product.id);
 }
+
+//alla filter i key value form: ex. color: green, outlet:true osv.
+export async function searchByFilter(query,response){
+    const allProductsByFilter = await getProducts();
+    return allProductsByFilter.filter(product => product[query] === product[response]);
+}
+
+
 export async function getProductByArticleNmb(articleNumber){
   const allProductsByFilter = await getProducts();
   return allProductsByFilter.filter(product => articleNumber === product.articleNumber);
@@ -34,7 +41,6 @@ export async function getProductByArticleNmb(articleNumber){
 // asynkron funktion m. async/await. Allt körs sekventiellt på main tråden i javascript,
 // koden "pausas/hoppar av tråden" tillfälligt tills den hämtat response. Suspension triggas när "await" kallas.
 export async function getProducts() {
-
   try {
 
     const baseUrl = window.location.origin;
@@ -57,6 +63,7 @@ export async function getProducts() {
       product.description,
       product.stock,
       product.color,
+      product.outlet,
     ));
   }
 
